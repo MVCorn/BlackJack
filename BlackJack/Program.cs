@@ -1,8 +1,8 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using BlackJack;
-var card = new Card();
+var card = new Card(Rank.Ace, Suit.Spades);
 
 var points = card.getPoints();
 
-Console.WriteLine("Card points are: " + points);
+Console.WriteLine("Ace of spades points: " + points);

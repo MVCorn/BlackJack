@@ -12,3 +12,4 @@ C:\Users\MajaVongeCornils\Documents\BlackJack\BlackJack\obj\Debug\net10.0\refint
 C:\Users\MajaVongeCornils\Documents\BlackJack\BlackJack\obj\Debug\net10.0\BlackJack.pdb
 C:\Users\MajaVongeCornils\Documents\BlackJack\BlackJack\obj\Debug\net10.0\BlackJack.genruntimeconfig.cache
 C:\Users\MajaVongeCornils\Documents\BlackJack\BlackJack\obj\Debug\net10.0\ref\BlackJack.dll
+C:\Users\MajaVongeCornils\Documents\BlackJack\BlackJack\obj\Debug\net10.0\BlackJack.sourcelink.json

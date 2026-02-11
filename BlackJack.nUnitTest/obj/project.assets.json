@@ -615,6 +615,16 @@
           "build/netcoreapp3.1/NUnit3TestAdapter.props": {},
           "build/netcoreapp3.1/NUnit3TestAdapter.targets": {}
         }
+      },
+      "BlackJack/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v10.0",
+        "compile": {
+          "bin/placeholder/BlackJack.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/BlackJack.dll": {}
+        }
       }
     }
   },
@@ -1504,10 +1514,16 @@
         "nunit3testadapter.nuspec",
         "nunit_256.png"
       ]
+    },
+    "BlackJack/1.0.0": {
+      "type": "project",
+      "path": "../BlackJack/BlackJack.csproj",
+      "msbuildProject": "../BlackJack/BlackJack.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net10.0": [
+      "BlackJack >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 17.14.0",
       "NUnit >= 4.3.2",
       "NUnit.Analyzers >= 4.7.0",
@@ -1541,7 +1557,11 @@
       "frameworks": {
         "net10.0": {
           "targetAlias": "net10.0",
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\BlackJack.csproj": {
+              "projectPath": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\BlackJack.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
