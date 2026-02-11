@@ -14,6 +14,7 @@ namespace BlackJack
         Seven,
         Eight,
         Nine,
+        Ten,
         Jack,
         Queen,
         King,
@@ -67,9 +68,39 @@ namespace BlackJack
         }
 
         // Create tring to represent card. Changes with visibility
-        public String cardString()
+        public String getDisplayString()
         {
-            return rank + " of " + suit;
+            if (visable)
+            {
+                return rank + " of " + suit;
+            }
+            else
+            {
+                return "Hidden card";
+            }
+        }
+
+        public void hide() { visable = false; }
+
+        public void show() { visable = true; }
+
+        public override bool Equals(object? obj)
+        {
+            try
+            {
+                Card otherCard = (Card)obj;
+                var rankEqual = this.rank == otherCard.rank;
+                var suitEqual = this.suit == otherCard.suit;
+                var pointsEqual = this.points == otherCard.points;
+                var visibleEqual = this.visable == otherCard.visable;
+
+                return (rankEqual && suitEqual && pointsEqual && visibleEqual);
+            }
+            catch
+            {
+                return base.Equals(obj);
+            }
+            
         }
     }
 }

@@ -11,6 +11,7 @@ namespace BlackJack.nUnitTest
         private Card _sevenOfHearts;
         private Card _eightOfClubs;
         private Card _nineOfHearts;
+        private Card _tenOfSpades;
         private Card _jackOfSpades;
         private Card _queenOfDiamonds;
         private Card _kingOfHearts;
@@ -53,28 +54,31 @@ namespace BlackJack.nUnitTest
         }
 
         [Test]
-        public void cardString()
+        public void getDisplayString()
         {
-            Assert.That(_twoOfHearts.cardString() == "Two of Hearts");
-            Assert.That(_threeOfClubs.cardString() == "Three of Clubs");
-            Assert.That(_fourOfSpades.cardString() == "Four of Spades");
-            Assert.That(_fiveOfDiamonds.cardString() == "Five of Diamonds");
-            Assert.That(_sixOfClubs.cardString() == "Six of Clubs");
-            Assert.That(_sevenOfHearts.cardString() == "Seven of Hearts");
-            Assert.That(_eightOfClubs.cardString() == "Eight of Clubs");
-            Assert.That(_nineOfHearts.cardString() == "Nine of Hearts");
+            Assert.That(_twoOfHearts.getDisplayString() == "Two of Hearts");
+            Assert.That(_threeOfClubs.getDisplayString() == "Three of Clubs");
+            Assert.That(_fourOfSpades.getDisplayString() == "Four of Spades");
+            Assert.That(_fiveOfDiamonds.getDisplayString() == "Five of Diamonds");
+            Assert.That(_sixOfClubs.getDisplayString() == "Six of Clubs");
+            Assert.That(_sevenOfHearts.getDisplayString() == "Seven of Hearts");
+            Assert.That(_eightOfClubs.getDisplayString() == "Eight of Clubs");
+            Assert.That(_nineOfHearts.getDisplayString() == "Nine of Hearts");
 
-            Assert.That(_jackOfSpades.cardString() == "Jack of Spades");
-            Assert.That(_queenOfDiamonds.cardString() == "Queen of Diamonds");
-            Assert.That(_kingOfHearts.cardString() == "King of Hearts");
+            Assert.That(_jackOfSpades.getDisplayString() == "Jack of Spades");
+            Assert.That(_queenOfDiamonds.getDisplayString() == "Queen of Diamonds");
+            Assert.That(_kingOfHearts.getDisplayString() == "King of Hearts");
 
-            Assert.That(_aceOfSpades.cardString() == "Ace of Spades");
+            Assert.That(_aceOfSpades.getDisplayString() == "Ace of Spades");
         }
 
         [Test]
         public void cardVisibility()
         {
-
+            _twoOfHearts.hide();
+            Assert.That(_twoOfHearts.getDisplayString() == "Hidden card");
+            _twoOfHearts.show();
+            Assert.That(_twoOfHearts.getDisplayString() == "Two of Hearts");
         }
 
 
