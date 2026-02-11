@@ -23,7 +23,7 @@ namespace BlackJack
     public enum Suit
     {
         Clubs,
-        Dimonds,
+        Diamonds,
         Hearts,
         Spades
     }
@@ -31,14 +31,17 @@ namespace BlackJack
     {
         private Rank rank;
         private Suit suit;
-        private bool visability;
+        // visible initiated as true
+        private bool visable = true;
         private int points;
 
+        // Construct card from rank and suit
         public Card(Rank rank, Suit suit)
         {
             this.rank = rank;
             this.suit = suit;
-            visability = true;
+
+            //Determin points based on rank
             switch(rank)
             {
                 case Rank.Two: case Rank.Three: case Rank.Four: case Rank.Five: case Rank.Six: case Rank.Seven: case Rank.Eight: case Rank.Nine:
@@ -57,9 +60,16 @@ namespace BlackJack
             }
         }
 
+        // Getter fror points
         public int getPoints()
         {
             return points;
+        }
+
+        // Create tring to represent card. Changes with visibility
+        public String cardString()
+        {
+            return rank + " of " + suit;
         }
     }
 }
