@@ -25,8 +25,7 @@ namespace BlackJack.nUnitTest
 
         private Card[] _testCards;
 
-        private Hand _handFull;
-        private Hand _handOneCard;
+        private Position _testPositionBig;
 
         [SetUp]
         public void Setup()
@@ -51,41 +50,83 @@ namespace BlackJack.nUnitTest
                                      _sixOfClubs, _sevenOfHearts, _eightOfClubs, _nineOfHearts, _tenOfSpades,
                                      _jackOfSpades, _queenOfDiamonds, _kingOfHearts, _aceOfSpades};
 
-            _handFull = new Hand();
+            _testPositionBig = new Position();
 
             foreach (Card card in _testCards)
             {
-                _handFull.addCard(card);
+                _testPositionBig.addPlayerCard(card);
             }
-
-            _handOneCard = new Hand();
-            _handOneCard.addCard(_jackOfSpades);
+            _testPositionBig.addDealerCard(_jackOfSpades);
 
 
-        }
-
-        [Test]
-        public void addCardDealer()
-        {
-        }
-
-        [Test]
-        public void addCardPlayer()
-        {
         }
 
         [Test]
         public void getPositionState()
         {
+            Assert.That(_testPositionBig.getPositionState() == PositionState.Bust);
+
+            Position pDealerBust = new Position();
+            pDealerBust.addDealerCard(_jackOfSpades);
+            pDealerBust.addDealerCard(_kingOfHearts);
+            pDealerBust.addDealerCard(_queenOfDiamonds);
+
+            Assert.That(pDealerBust.getPositionState() == PositionState.DealerBust);
+
+            Position pLoose = new Position();
+            pLoose.addDealerCard(_aceOfSpades);
+            pLoose.addPlayerCard(_jackOfSpades);
+
+            Assert.That(pLoose.getPositionState() == PositionState.Lose);
+
+            Position pWin = new Position();
+
+            pWin.addPlayerCard(_queenOfDiamonds);
+            pWin.addDealerCard(_twoOfHearts);
+
+            Assert.That(pWin.getPositionState() == PositionState.Win);
+
+            Position pBlackJack = new Position();
+            pBlackJack.addPlayerCard(_jackOfSpades);
+            pBlackJack.addPlayerCard(_aceOfSpades);
+
+            Assert.That(pBlackJack.getPositionState() == PositionState.BlackJack);
+
+            Position pDealerBlackJack = new Position();
+            pDealerBlackJack.addDealerCard(_queenOfDiamonds);
+            pDealerBlackJack.addDealerCard(_aceOfSpades);
+
+            Assert.That(pDealerBlackJack.getPositionState() == PositionState.DealerBlackJack);
+
+            Position pBothBlackJack = new Position();
+            pBothBlackJack.addPlayerCard(_jackOfSpades);
+            pBothBlackJack.addPlayerCard(_aceOfSpades);
+            pBothBlackJack.addDealerCard(_queenOfDiamonds);
+            pBothBlackJack.addDealerCard(_aceOfSpades);
+
+            Assert.That(pBothBlackJack.getPositionState() == PositionState.BothBlackJack);
+
+            Position pDealer21NotBlackJack = new Position();
+            pDealerBlackJack.addDealerCard(_queenOfDiamonds);
+            pDealerBlackJack.addDealerCard(_threeOfClubs);
+            pDealerBlackJack.addDealerCard(_eightOfClubs);
+
+            Assert.That(pBlackJack.getPositionState() == PositionState.Lose);
+
+
         }
 
         [Test]
         public void getDisplayString()
         {
-            
-            string correctString = "Your hand:\nTwo of Hearts\nThree of Clubs\nFour of Spades\nFive of Diamonds" +
-                                   "\nSix of Clubs\nSeven of Hearts\nEight of Clubs\nNine of Hearts\nTen of Spades" +
-                                   "\nJack of Spades\nQueen of Diamonds\nKing of Hearts\nAce of Spades\n";
+            string correctString = "Dealer's hand:\n"+
+                                   " Jack of Spades\n" +
+                                   "Your hand:\n" +
+                                   " Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds\n" +
+                                   " Six of Clubs\n Seven of Hearts\n Eight of Clubs\n Nine of Hearts\n Ten of Spades\n" +
+                                   " Jack of Spades\n Queen of Diamonds\n King of Hearts\n Ace of Spades\n";
+
+            Assert.That(_testPositionBig.getDisplayString() == correctString);
         }
     }
 }

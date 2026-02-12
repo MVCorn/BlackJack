@@ -52,6 +52,11 @@
             return totalPoints;
         }
 
+        public int getNrCards()
+        {
+            return cards.Count;
+        }
+
         // Gets pretty string for output
         public string getDisplayString()
         {

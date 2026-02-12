@@ -94,7 +94,7 @@ namespace BlackJack.nUnitTest
                 hand.addCard(card);
             }
 
-            string correctString = "Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds" +
+            string correctString = " Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds" +
                                    "\n Six of Clubs\n Seven of Hearts\n Eight of Clubs\n Nine of Hearts\n Ten of Spades" +
                                    "\n Jack of Spades\n Queen of Diamonds\n King of Hearts\n Ace of Spades\n";
 

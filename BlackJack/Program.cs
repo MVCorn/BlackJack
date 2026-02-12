@@ -7,6 +7,8 @@ Card twoOfHearts = new Card(Rank.Two, Suit.Hearts);
 Card threeOfClubs = new Card(Rank.Three, Suit.Clubs);
 Card fourOfSpades = new Card(Rank.Four, Suit.Spades);
 
+Card eightOfClubs = new Card(Rank.Eight, Suit.Clubs);
+
 Card kingOfHearts = new Card(Rank.King, Suit.Hearts);
 
 Card aceOfSpades = new Card(Rank.Ace, Suit.Spades);
