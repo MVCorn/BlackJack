@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlackJack
+﻿namespace BlackJack
 {
     public class DealersShoe
     {
@@ -13,18 +9,18 @@ namespace BlackJack
             cards = createDeck();
             shuffle();
         }
-        
-        // Create full deck of cards
+
+        // Create full deck of cards (preshuffled)
         private Stack<Card> createDeck()
         {
             Stack<Card> cards = new Stack<Card>();
             // Loop though ranks
-            for(int rankInt = 0; rankInt < 12; rankInt ++)
+            for (int rankInt = 0; rankInt < 13; rankInt++)
             {
                 Rank rank = (Rank)rankInt;
 
                 // Loop through suits
-                for(int suitInt = 0; suitInt < 4;  suitInt ++)
+                for (int suitInt = 0; suitInt < 4; suitInt++)
                 {
                     Suit suit = (Suit)suitInt;
                     cards.Push(new Card(rank, suit));
@@ -34,6 +30,7 @@ namespace BlackJack
             return cards;
         }
 
+        // Shuffel cards
         private void shuffle()
         {
             Card[] cardsArray = cards.ToArray();
@@ -42,12 +39,13 @@ namespace BlackJack
             cards = new Stack<Card>(shuffledArray);
         }
 
+        // Take card from top of stack
         public Card takeCard()
         {
             return cards.Pop();
         }
 
-        public Card[] getCardsArrayForTesting () {  return cards.ToArray(); }
+        public Card[] getCardsArrayForTesting() { return cards.ToArray(); }
 
     }
 }

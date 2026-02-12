@@ -8,19 +8,19 @@
     "net10.0": []
   },
   "packageFolders": {
-    "C:\\Users\\MajaVongeCornils\\.nuget\\packages\\": {}
+    "C:\\Users\\majac\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\BlackJack.csproj",
+      "projectUniqueName": "C:\\Users\\majac\\OneDrive\\Dokumenter\\GitHub\\BlackJack\\BlackJack\\BlackJack.csproj",
       "projectName": "BlackJack",
-      "projectPath": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\BlackJack.csproj",
-      "packagesPath": "C:\\Users\\MajaVongeCornils\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\obj\\",
+      "projectPath": "C:\\Users\\majac\\OneDrive\\Dokumenter\\GitHub\\BlackJack\\BlackJack\\BlackJack.csproj",
+      "packagesPath": "C:\\Users\\majac\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\majac\\OneDrive\\Dokumenter\\GitHub\\BlackJack\\BlackJack\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\MajaVongeCornils\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\majac\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -46,7 +46,7 @@
         "auditLevel": "low",
         "auditMode": "all"
       },
-      "SdkAnalysisLevel": "10.0.200"
+      "SdkAnalysisLevel": "10.0.100"
     },
     "frameworks": {
       "net10.0": {
@@ -67,7 +67,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.103/PortableRuntimeIdentifierGraph.json",
         "packagesToPrune": {
           "Microsoft.CSharp": "(,4.7.32767]",
           "Microsoft.VisualBasic": "(,10.4.32767]",

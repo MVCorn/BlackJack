@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlackJack
+﻿namespace BlackJack
 {
     public enum Rank
     {
@@ -43,12 +39,22 @@ namespace BlackJack
             this.suit = suit;
 
             //Determin points based on rank
-            switch(rank)
+            switch (rank)
             {
-                case Rank.Two: case Rank.Three: case Rank.Four: case Rank.Five: case Rank.Six: case Rank.Seven: case Rank.Eight: case Rank.Nine:
+                case Rank.Two:
+                case Rank.Three:
+                case Rank.Four:
+                case Rank.Five:
+                case Rank.Six:
+                case Rank.Seven:
+                case Rank.Eight:
+                case Rank.Nine:
+                case Rank.Ten:
                     points = (int)rank + 2;
                     break;
-                case Rank.Jack: case Rank.Queen: case Rank.King:
+                case Rank.Jack:
+                case Rank.Queen:
+                case Rank.King:
                     points = 10;
                     break;
                 case Rank.Ace:
@@ -65,6 +71,11 @@ namespace BlackJack
         public int getPoints()
         {
             return points;
+        }
+
+        public Rank getRank()
+        {
+            return rank;
         }
 
         // Create tring to represent card. Changes with visibility
@@ -100,7 +111,7 @@ namespace BlackJack
             {
                 return base.Equals(obj);
             }
-            
+
         }
     }
 }

@@ -1,24 +1,21 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using BlackJack;
-var card = new Card(Rank.Ace, Suit.Spades);
 
-var points = card.getPoints();
-var cardDisplayString = card.getDisplayString();
 
-Console.WriteLine(cardDisplayString + " points: " + points);
+Card twoOfHearts = new Card(Rank.Two, Suit.Hearts);
+Card threeOfClubs = new Card(Rank.Three, Suit.Clubs);
+Card fourOfSpades = new Card(Rank.Four, Suit.Spades);
 
-var dealersShoe = new DealersShoe();
+Card kingOfHearts = new Card(Rank.King, Suit.Hearts);
 
-bool shouldBeTrue = Array.Exists(dealersShoe.getCardsArrayForTesting(), dCard => dCard.Equals(card));
+Card aceOfSpades = new Card(Rank.Ace, Suit.Spades);
 
-Console.WriteLine(shouldBeTrue);
+Hand hand = new Hand();
+hand.addCard(twoOfHearts);
+hand.addCard(threeOfClubs);
+hand.addCard(fourOfSpades);
 
-//foreach(Card dCard in dealersShoe.getCardsArrayForTesting())
-//{
-//    Console.WriteLine(dCard.getDisplayString());
-//}
+Console.WriteLine(hand.getDisplayString());
 
-Console.WriteLine(dealersShoe.getCardsArrayForTesting().Length);
-dealersShoe.takeCard();
-Console.WriteLine(dealersShoe.getCardsArrayForTesting().Length);
+
