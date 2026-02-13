@@ -24,6 +24,14 @@
             totalPoints = calculatePoints();
         }
 
+        public void showAllCards()
+        {
+            foreach (Card card in cards)
+            {
+                card.show();
+            }
+        }
+
         // Calculates points
         // Handles aces
         private int calculatePoints()

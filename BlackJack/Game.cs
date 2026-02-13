@@ -36,16 +36,19 @@ namespace BlackJack
             switch (state)
             {
                 case (PositionState.BothBlackJack):
+                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(bBlackJack);
                     break;
                 case (PositionState.DealerBlackJack):
+                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(dBlackJack);
                     break;
                 case (PositionState.BlackJack):
+                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(blackJack);
                     break;
                 default:
-                    round();
+                    checkBust();
                     break;
             }
         }
@@ -66,6 +69,7 @@ namespace BlackJack
         {
             string displayString = "ROUND " + roundNr + "\n \n"
                                    + position.getDisplayString();
+            position.showDealerCards();
             Console.WriteLine(displayString);
             getMove();
 
@@ -94,11 +98,14 @@ namespace BlackJack
         private void hit()
         {
             position.addPlayerCard(shoe.takeCard());
+            position.addDealerCard(shoe.takeCard());
+
+            checkBust();
         }
 
         private void stand()
         {
-
+            checkStand();
         }
 
         private void checkBust()
@@ -107,12 +114,50 @@ namespace BlackJack
             switch (state)
             {
                 case PositionState.DealerBust:
+                    Console.WriteLine(position.getDisplayString());
+                    Console.WriteLine(dBust);
+                    break;
+                case PositionState.Bust:
+                    Console.WriteLine(position.getDisplayString());
+                    Console.WriteLine(bust);
+                    break;
+                default:
+                    round();
+                    break;
+            }
+        }
+
+        private void checkStand()
+        {
+            PositionState state = position.getPositionState();
+            switch (state)
+            {
+                case (PositionState.BothBlackJack):
+                    Console.WriteLine(bBlackJack);
+                    break;
+                case (PositionState.DealerBlackJack):
+                    Console.WriteLine(dBlackJack);
+                    break;
+                case (PositionState.BlackJack):
+                    Console.WriteLine(blackJack);
+                    break;
+                case PositionState.DealerBust:
                     Console.WriteLine(dBust);
                     break;
                 case PositionState.Bust:
                     Console.WriteLine(bust);
                     break;
+                case PositionState.Win:
+                    Console.WriteLine(win);
+                    break;
+                case PositionState.Lose:
+                    Console.WriteLine(lose);
+                    break;
+                case PositionState.Standoff:
+                    Console.WriteLine(standoff);
+                    break;
                 default:
+                    Console.WriteLine("ERROR");
                     break;
             }
         }

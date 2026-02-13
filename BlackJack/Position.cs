@@ -36,6 +36,11 @@
             state = comparePoints();
         }
 
+        public void showDealerCards()
+        {
+            dealerHand.showAllCards();
+        }
+
         private PositionState comparePoints()
         {
             int dealerPoints = dealerHand.getPoints();
