@@ -3,10 +3,6 @@
   "WorkspaceRootPath": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\position.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -15,16 +11,20 @@
       "RelativeMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\hand.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\game.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack.nunittest\\positiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|solutionrelative:blackjack.nunittest\\positiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|solutionrelative:blackjack\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack.nunittest\\handtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|solutionrelative:blackjack.nunittest\\handtests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack.nunittest\\positiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{88B48F4D-F91E-43F0-080C-358689C746F6}|BlackJack.nUnitTest\\BlackJack.nUnitTest.csproj|solutionrelative:blackjack.nunittest\\positiontest.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{393FE6D6-873C-53C6-6EC5-219F0EB88D60}|BlackJack\\BlackJack.csproj|c:\\users\\majavongecornils\\documents\\blackjack\\blackjack\\dealersshoe.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -42,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 6,
           "Children": [
             {
               "$type": "Bookmark",
@@ -58,8 +58,7 @@
               "RelativeToolTip": "BlackJack\\DealersShoe.cs",
               "ViewState": "AgIAAA8AAAAAAAAAAAAYwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T15:18:54.191Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T15:18:54.191Z"
             },
             {
               "$type": "Document",
@@ -71,38 +70,37 @@
               "RelativeToolTip": "BlackJack\\Card.cs",
               "ViewState": "AgIAAFoAAAAAAAAAAAAIwDMAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T15:18:47.096Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T15:18:47.096Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 1,
               "Title": "Hand.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Hand.cs",
               "RelativeDocumentMoniker": "BlackJack\\Hand.cs",
               "ToolTip": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Hand.cs",
               "RelativeToolTip": "BlackJack\\Hand.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAA1wCAAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAACgAAAAAAAAAAAAkwCAAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T14:20:02.614Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "Game.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Game.cs",
               "RelativeDocumentMoniker": "BlackJack\\Game.cs",
               "ToolTip": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Game.cs",
               "RelativeToolTip": "BlackJack\\Game.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAuwGQAAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAUwGQAAAA0AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T13:49:35.764Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "HandTests.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack.nUnitTest\\HandTests.cs",
               "RelativeDocumentMoniker": "BlackJack.nUnitTest\\HandTests.cs",
@@ -110,38 +108,37 @@
               "RelativeToolTip": "BlackJack.nUnitTest\\HandTests.cs",
               "ViewState": "AgIAAGYAAAAAAAAAAAAAACQAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:32:15.307Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T11:32:15.307Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "Position.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Position.cs",
               "RelativeDocumentMoniker": "BlackJack\\Position.cs",
               "ToolTip": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Position.cs",
               "RelativeToolTip": "BlackJack\\Position.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAxwCgAAAAmAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAQwBQAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T10:42:58.831Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "PositionTest.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack.nUnitTest\\PositionTest.cs",
               "RelativeDocumentMoniker": "BlackJack.nUnitTest\\PositionTest.cs",
               "ToolTip": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack.nUnitTest\\PositionTest.cs",
               "RelativeToolTip": "BlackJack.nUnitTest\\PositionTest.cs",
-              "ViewState": "AgIAAFgAAAAAAAAAAAAgwGUAAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAGQAAAAAAAAAAAAgwHEAAABYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-02-12T10:29:11.1Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\MajaVongeCornils\\Documents\\BlackJack\\BlackJack\\Program.cs",
               "RelativeDocumentMoniker": "BlackJack\\Program.cs",
@@ -149,8 +146,7 @@
               "RelativeToolTip": "BlackJack\\Program.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-02-12T11:36:05.77Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-02-12T11:36:05.77Z"
             }
           ]
         }

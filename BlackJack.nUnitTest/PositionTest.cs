@@ -107,13 +107,11 @@ namespace BlackJack.nUnitTest
             Assert.That(pBothBlackJack.getPositionState() == PositionState.BothBlackJack);
 
             Position pDealer21NotBlackJack = new Position();
-            pDealerBlackJack.addDealerCard(_queenOfDiamonds);
-            pDealerBlackJack.addDealerCard(_threeOfClubs);
-            pDealerBlackJack.addDealerCard(_eightOfClubs);
+            pDealer21NotBlackJack.addDealerCard(_queenOfDiamonds);
+            pDealer21NotBlackJack.addDealerCard(_threeOfClubs);
+            pDealer21NotBlackJack.addDealerCard(_eightOfClubs);
 
-            Assert.That(pBlackJack.getPositionState() == PositionState.Lose);
-
-
+            Assert.That(pDealer21NotBlackJack.getPositionState() == PositionState.Lose);
         }
 
         [Test]
