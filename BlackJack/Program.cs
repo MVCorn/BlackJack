@@ -2,7 +2,12 @@
 
 using BlackJack;
 
+DealersShoe dealersShoe = new DealersShoe();
 
-Game game = new Game();
+Card[] cards = { new Card(Rank.Nine, Suit.Diamonds) };
+
+TestShoe testShoe = new TestShoe(cards);
+
+Game game = new Game(dealersShoe);
 game.StartGame();
 

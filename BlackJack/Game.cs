@@ -5,7 +5,7 @@ namespace BlackJack
     public class Game
     {
         private Position position;
-        private DealersShoe shoe;
+        private AbstractShoe shoe;
         private int roundNr = 0;
         private string bust = "Your have bust, you lost";
         private string dBust = "The dealer has bust, you won!";
@@ -16,18 +16,28 @@ namespace BlackJack
         private string lose = "The dealer had more points than you, you lost.";
         private string win = "You had more points than the dealer, you won!";
 
-        public Game()
+        public Game(AbstractShoe shoe)
         {
             position = new Position();
-            shoe = new DealersShoe();
+            this.shoe = shoe;
         }
 
         public void StartGame()
         {
             string displayString = "You are now playing BlackJack!!!";
             InitialDeal();
+            displayString = displayString + "Initial Round " + roundNr + "\n \n"
+                            + position.getDisplayString();
             Console.WriteLine(displayString);
             CheckBlackJack();
+            position.showDealerCards();
+        }
+
+        private void EndGame()
+        {
+            string displayString = "The game has ended, would you like to play again? \n Y/N";
+
+            string input = Console.ReadLine();
         }
 
         private void CheckBlackJack()
@@ -36,16 +46,16 @@ namespace BlackJack
             switch (state)
             {
                 case (PositionState.BothBlackJack):
-                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(bBlackJack);
+                    EndGame();
                     break;
                 case (PositionState.DealerBlackJack):
-                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(dBlackJack);
+                    EndGame();
                     break;
                 case (PositionState.BlackJack):
-                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(blackJack);
+                    EndGame();
                     break;
                 default:
                     CheckBust();
@@ -61,18 +71,6 @@ namespace BlackJack
             hiddenCard.Hide();
             position.addDealerCard(hiddenCard);
             position.addPlayerCard(shoe.TakeCard());
-        }
-
-
-
-        private void Round()
-        {
-            string displayString = "ROUND " + roundNr + "\n \n"
-                                   + position.getDisplayString();
-            position.showDealerCards();
-            Console.WriteLine(displayString);
-            GetMove();
-
         }
 
         private void GetMove()
@@ -100,12 +98,19 @@ namespace BlackJack
             position.addPlayerCard(shoe.TakeCard());
             position.addDealerCard(shoe.TakeCard());
 
-            CheckBust();
+            string displayString = "ROUND " + roundNr + "\n \n"
+                                   + position.getDisplayString();
+
+            Console.WriteLine(displayString);
+
+
+            CheckBlackJack();
         }
 
         private void Stand()
         {
             CheckStand();
+            EndGame();
         }
 
         private void CheckBust()
@@ -114,15 +119,15 @@ namespace BlackJack
             switch (state)
             {
                 case PositionState.DealerBust:
-                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(dBust);
+                    EndGame();
                     break;
                 case PositionState.Bust:
-                    Console.WriteLine(position.getDisplayString());
                     Console.WriteLine(bust);
+                    EndGame();
                     break;
                 default:
-                    round();
+                    GetMove();
                     break;
             }
         }

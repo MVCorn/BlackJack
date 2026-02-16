@@ -8,9 +8,14 @@ namespace BlackJack
     {
         private Stack<Card> cards;
 
+        public AbstractShoe()
+        {
+            cards = new Stack<Card>();
+        }
+
 
         // Create full deck of cards (preshuffled)
-        protected static Stack<Card> CreateDeck()
+        public static Stack<Card> CreateDeck()
         {
             Stack<Card> cards = new Stack<Card>();
             // Loop though ranks
@@ -30,7 +35,7 @@ namespace BlackJack
         }
 
         // Take card from top of stack
-        protected Card TakeCard()
+        public Card TakeCard()
         {
             return cards.Pop();
         }
