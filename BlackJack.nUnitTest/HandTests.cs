@@ -54,18 +54,18 @@ namespace BlackJack.nUnitTest
         {
             Hand hand1 = new Hand();
 
-            hand1.addCard(_jackOfSpades);
+            hand1.AddCard(_jackOfSpades);
 
-            Assert.That(hand1.getCardsForTesting().Contains(_jackOfSpades));
+            Assert.That(hand1.GetCardsForTesting().Contains(_jackOfSpades));
 
             Hand hand2 = new Hand();
 
-            hand2.addCard(_twoOfHearts);
-            hand2.addCard(_threeOfClubs);
+            hand2.AddCard(_twoOfHearts);
+            hand2.AddCard(_threeOfClubs);
 
-            Assert.That(hand2.getCardsForTesting().Contains(_twoOfHearts));
-            Assert.That(hand2.getCardsForTesting().Contains(_threeOfClubs));
-            Assert.That(!hand2.getCardsForTesting().Contains(_jackOfSpades));
+            Assert.That(hand2.GetCardsForTesting().Contains(_twoOfHearts));
+            Assert.That(hand2.GetCardsForTesting().Contains(_threeOfClubs));
+            Assert.That(!hand2.GetCardsForTesting().Contains(_jackOfSpades));
         }
 
         [Test]
@@ -73,15 +73,15 @@ namespace BlackJack.nUnitTest
         {
             Hand handNoAce = new Hand();
 
-            handNoAce.addCard(_twoOfHearts);
-            handNoAce.addCard(_threeOfClubs);
+            handNoAce.AddCard(_twoOfHearts);
+            handNoAce.AddCard(_threeOfClubs);
 
             Hand handAce = new Hand();
 
-            handAce.addCard(_aceOfSpades);
+            handAce.AddCard(_aceOfSpades);
 
-            Assert.That(handNoAce.getNrAcesForTesting() == 0);
-            Assert.That(handAce.getNrAcesForTesting() == 1);
+            Assert.That(handNoAce.GetNrAcesForTesting() == 0);
+            Assert.That(handAce.GetNrAcesForTesting() == 1);
         }
 
         [Test]
@@ -91,51 +91,51 @@ namespace BlackJack.nUnitTest
 
             foreach (Card card in _testCards)
             {
-                hand.addCard(card);
+                hand.AddCard(card);
             }
 
             string correctString = " Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds" +
                                    "\n Six of Clubs\n Seven of Hearts\n Eight of Clubs\n Nine of Hearts\n Ten of Spades" +
                                    "\n Jack of Spades\n Queen of Diamonds\n King of Hearts\n Ace of Spades\n";
 
-            Assert.That(hand.getDisplayString().Equals(correctString));
+            Assert.That(hand.GetDisplayString().Equals(correctString));
         }
 
         [Test]
         public void getTotal()
         {
             Hand handSimple = new Hand();
-            handSimple.addCard(_fiveOfDiamonds);
-            handSimple.addCard(_threeOfClubs);
+            handSimple.AddCard(_fiveOfDiamonds);
+            handSimple.AddCard(_threeOfClubs);
 
-            Assert.That(handSimple.getPoints() == 8);
+            Assert.That(handSimple.GetPoints() == 8);
 
             Hand handBigAce = new Hand();
-            handBigAce.addCard(_aceOfSpades);
-            handBigAce.addCard(_sevenOfHearts);
+            handBigAce.AddCard(_aceOfSpades);
+            handBigAce.AddCard(_sevenOfHearts);
 
-            Assert.That(handBigAce.getPoints() == 18);
+            Assert.That(handBigAce.GetPoints() == 18);
 
             Hand handSmallAce = new Hand();
-            handSmallAce.addCard(_queenOfDiamonds);
-            handSmallAce.addCard(_kingOfHearts);
-            handSmallAce.addCard(_aceOfSpades);
+            handSmallAce.AddCard(_queenOfDiamonds);
+            handSmallAce.AddCard(_kingOfHearts);
+            handSmallAce.AddCard(_aceOfSpades);
 
-            Assert.That(handSmallAce.getPoints() == 21);
+            Assert.That(handSmallAce.GetPoints() == 21);
 
             Hand handMuliAce = new Hand();
-            handMuliAce.addCard(_aceOfSpades);
-            handMuliAce.addCard(new Card(Rank.Ace, Suit.Clubs));
+            handMuliAce.AddCard(_aceOfSpades);
+            handMuliAce.AddCard(new Card(Rank.Ace, Suit.Clubs));
 
-            Assert.That(handMuliAce.getPoints() == 12);
+            Assert.That(handMuliAce.GetPoints() == 12);
 
             Hand handOver21 = new Hand();
-            handOver21.addCard(_aceOfSpades);
-            handOver21.addCard(new Card(Rank.Ace, Suit.Clubs));
-            handOver21.addCard(_queenOfDiamonds);
-            handOver21.addCard(_kingOfHearts);
+            handOver21.AddCard(_aceOfSpades);
+            handOver21.AddCard(new Card(Rank.Ace, Suit.Clubs));
+            handOver21.AddCard(_queenOfDiamonds);
+            handOver21.AddCard(_kingOfHearts);
 
-            Assert.That(handOver21.getPoints() == 22);
+            Assert.That(handOver21.GetPoints() == 22);
 
         }
     }

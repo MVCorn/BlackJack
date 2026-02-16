@@ -6,12 +6,12 @@
 
         public DealersShoe()
         {
-            cards = createDeck();
-            shuffle();
+            cards = CreateDeck();
+            Shuffle();
         }
 
         // Create full deck of cards (preshuffled)
-        private Stack<Card> createDeck()
+        private Stack<Card> CreateDeck()
         {
             Stack<Card> cards = new Stack<Card>();
             // Loop though ranks
@@ -31,7 +31,7 @@
         }
 
         // Shuffel cards
-        private void shuffle()
+        private void Shuffle()
         {
             Card[] cardsArray = cards.ToArray();
             System.Random rnd = new System.Random();
@@ -40,12 +40,12 @@
         }
 
         // Take card from top of stack
-        public Card takeCard()
+        public Card TakeCard()
         {
             return cards.Pop();
         }
 
-        public Card[] getCardsArrayForTesting() { return cards.ToArray(); }
+        public Card[] GetCardsArrayForTesting() { return cards.ToArray(); }
 
     }
 }

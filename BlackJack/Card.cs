@@ -68,18 +68,18 @@
         }
 
         // Getter fror points
-        public int getPoints()
+        public int GetPoints()
         {
             return points;
         }
 
-        public Rank getRank()
+        public Rank GetRank()
         {
             return rank;
         }
 
         // Create tring to represent card. Changes with visibility
-        public String getDisplayString()
+        public String GetDisplayString()
         {
             if (visable)
             {
@@ -91,9 +91,9 @@
             }
         }
 
-        public void hide() { visable = false; }
+        public void Hide() { visable = false; }
 
-        public void show() { visable = true; }
+        public void Show() { visable = true; }
 
         public override bool Equals(object? obj)
         {

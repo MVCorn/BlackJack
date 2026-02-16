@@ -26,27 +26,27 @@
 
         public void addDealerCard(Card card)
         {
-            dealerHand.addCard(card);
+            dealerHand.AddCard(card);
             state = comparePoints();
         }
 
         public void addPlayerCard(Card card)
         {
-            playerHand.addCard(card);
+            playerHand.AddCard(card);
             state = comparePoints();
         }
 
         public void showDealerCards()
         {
-            dealerHand.showAllCards();
+            dealerHand.ShowAllCards();
         }
 
         private PositionState comparePoints()
         {
-            int dealerPoints = dealerHand.getPoints();
-            int playerPoints = playerHand.getPoints();
-            int dealerCount = dealerHand.getNrCards();
-            int playerCount = playerHand.getNrCards();
+            int dealerPoints = dealerHand.GetPoints();
+            int playerPoints = playerHand.GetPoints();
+            int dealerCount = dealerHand.GetNrCards();
+            int playerCount = playerHand.GetNrCards();
 
             switch ((dealerPoints: dealerPoints, playerPoints: playerPoints))
             {
@@ -102,9 +102,9 @@
         public string getDisplayString()
         {
             string displayString = "Dealer's hand:\n" +
-                                   dealerHand.getDisplayString() +
+                                   dealerHand.GetDisplayString() +
                                    "Your hand:\n" +
-                                   playerHand.getDisplayString();
+                                   playerHand.GetDisplayString();
 
             return displayString;
         }

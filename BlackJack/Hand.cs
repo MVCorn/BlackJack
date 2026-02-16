@@ -13,33 +13,33 @@
         // Adds new card to hand
         // Adds to Ace counter where relevant
         // Calculates you point total
-        public void addCard(Card card)
+        public void AddCard(Card card)
         {
-            if (card.getRank() == Rank.Ace)
+            if (card.GetRank() == Rank.Ace)
             {
                 nrAces++;
             }
             cards.Add(card);
 
-            totalPoints = calculatePoints();
+            totalPoints = CalculatePoints();
         }
 
-        public void showAllCards()
+        public void ShowAllCards()
         {
             foreach (Card card in cards)
             {
-                card.show();
+                card.Show();
             }
         }
 
         // Calculates points
         // Handles aces
-        private int calculatePoints()
+        private int CalculatePoints()
         {
             int points = 0;
             foreach (Card card in cards)
             {
-                points = points + card.getPoints();
+                points = points + card.GetPoints();
             }
 
             if (points > 21)
@@ -55,30 +55,30 @@
             return points;
         }
 
-        public int getPoints()
+        public int GetPoints()
         {
             return totalPoints;
         }
 
-        public int getNrCards()
+        public int GetNrCards()
         {
             return cards.Count;
         }
 
         // Gets pretty string for output
-        public string getDisplayString()
+        public string GetDisplayString()
         {
             string displayString = "";
             foreach (Card card in cards)
             {
-                displayString += " " + card.getDisplayString() + "\n";
+                displayString += " " + card.GetDisplayString() + "\n";
             }
             return displayString;
         }
 
         
 
-        public List<Card> getCardsForTesting() { return cards; }
-        public int getNrAcesForTesting() { return nrAces; }
+        public List<Card> GetCardsForTesting() { return cards; }
+        public int GetNrAcesForTesting() { return nrAces; }
     }
 }

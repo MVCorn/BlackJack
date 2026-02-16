@@ -4,5 +4,5 @@ using BlackJack;
 
 
 Game game = new Game();
-game.startGame();
+game.StartGame();
 

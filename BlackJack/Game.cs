@@ -22,15 +22,15 @@ namespace BlackJack
             shoe = new DealersShoe();
         }
 
-        public void startGame()
+        public void StartGame()
         {
             string displayString = "You are now playing BlackJack!!!";
-            initialDeal();
+            InitialDeal();
             Console.WriteLine(displayString);
-            checkBlackJack();
+            CheckBlackJack();
         }
 
-        private void checkBlackJack()
+        private void CheckBlackJack()
         {
             PositionState state = position.getPositionState();
             switch (state)
@@ -48,67 +48,67 @@ namespace BlackJack
                     Console.WriteLine(blackJack);
                     break;
                 default:
-                    checkBust();
+                    CheckBust();
                     break;
             }
         }
 
-        private void initialDeal()
+        private void InitialDeal()
         {
-            position.addDealerCard(shoe.takeCard());
-            position.addPlayerCard(shoe.takeCard());
-            Card hiddenCard = shoe.takeCard();
-            hiddenCard.hide();
+            position.addDealerCard(shoe.TakeCard());
+            position.addPlayerCard(shoe.TakeCard());
+            Card hiddenCard = shoe.TakeCard();
+            hiddenCard.Hide();
             position.addDealerCard(hiddenCard);
-            position.addPlayerCard(shoe.takeCard());
+            position.addPlayerCard(shoe.TakeCard());
         }
 
 
 
-        private void round()
+        private void Round()
         {
             string displayString = "ROUND " + roundNr + "\n \n"
                                    + position.getDisplayString();
             position.showDealerCards();
             Console.WriteLine(displayString);
-            getMove();
+            GetMove();
 
         }
 
-        private void getMove()
+        private void GetMove()
         {
             string input = Console.ReadLine();
 
             switch (input.ToLower())
             {
                 case "h":
-                    hit();
+                    Hit();
                     break;
                 case "s":
-                    stand();
+                    Stand();
                     break;
                 default:
                     Console.WriteLine("That is not a valid inpit, please try again");
-                    getMove();
+                    GetMove();
                     break;
 
             }
         }
 
-        private void hit()
+        private void Hit()
         {
-            position.addPlayerCard(shoe.takeCard());
-            position.addDealerCard(shoe.takeCard());
+            position.addPlayerCard(shoe.TakeCard());
+            position.addDealerCard(shoe.TakeCard());
 
-            checkBust();
+            CheckBust();
         }
 
-        private void stand()
+        private void Stand()
         {
-            checkStand();
+            CheckStand();
         }
 
-        private void checkBust()
+        private void CheckBust()
         {
             PositionState state = position.getPositionState();
             switch (state)
@@ -127,7 +127,7 @@ namespace BlackJack
             }
         }
 
-        private void checkStand()
+        private void CheckStand()
         {
             PositionState state = position.getPositionState();
             switch (state)

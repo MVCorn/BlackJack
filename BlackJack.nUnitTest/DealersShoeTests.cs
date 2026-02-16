@@ -48,7 +48,7 @@ namespace BlackJack.nUnitTest
                                      _jackOfSpades, _queenOfDiamonds, _kingOfHearts, _aceOfSpades};
 
             _dealersShoe = new DealersShoe();
-            _dealersShoeCards = _dealersShoe.getCardsArrayForTesting();
+            _dealersShoeCards = _dealersShoe.GetCardsArrayForTesting();
         }
 
         [Test]
@@ -70,8 +70,8 @@ namespace BlackJack.nUnitTest
         [Test]
         public void takeCardRemovesCard()
         {
-            Card card = _dealersShoe.takeCard();
-            int cardsInShoe = _dealersShoe.getCardsArrayForTesting().Length;
+            Card card = _dealersShoe.TakeCard();
+            int cardsInShoe = _dealersShoe.GetCardsArrayForTesting().Length;
             Console.WriteLine(cardsInShoe);
             Assert.That(cardsInShoe == 51);
         }
