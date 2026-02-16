@@ -1,6 +1,6 @@
 ﻿namespace BlackJack
 {
-    public class DealersShoe
+    public class DealersShoe : AbstractShoe
     {
         private Stack<Card> cards;
 
@@ -8,26 +8,6 @@
         {
             cards = CreateDeck();
             Shuffle();
-        }
-
-        // Create full deck of cards (preshuffled)
-        private Stack<Card> CreateDeck()
-        {
-            Stack<Card> cards = new Stack<Card>();
-            // Loop though ranks
-            for (int rankInt = 0; rankInt < 13; rankInt++)
-            {
-                Rank rank = (Rank)rankInt;
-
-                // Loop through suits
-                for (int suitInt = 0; suitInt < 4; suitInt++)
-                {
-                    Suit suit = (Suit)suitInt;
-                    cards.Push(new Card(rank, suit));
-                }
-            }
-
-            return cards;
         }
 
         // Shuffel cards
@@ -39,13 +19,19 @@
             cards = new Stack<Card>(shuffledArray);
         }
 
-        // Take card from top of stack
-        public Card TakeCard()
+        public override bool Equals(object? obj)
         {
-            return cards.Pop();
+            return base.Equals(obj);
         }
 
-        public Card[] GetCardsArrayForTesting() { return cards.ToArray(); }
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
 
+        public override string? ToString()
+        {
+            return base.ToString();
+        }
     }
 }
