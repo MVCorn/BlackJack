@@ -1,5 +1,6 @@
 ﻿namespace BlackJack
 {
+
     public enum PositionState
     {
         Win,
@@ -12,10 +13,24 @@
         Standoff,
         ERROR
     }
+
+    struct State
+    {
+        public const string bBlackJack = "The dealer got BlackJack... But so did you! BIG WIN!";
+        public const string dBlackJack = "Dealer got BlackJack, you lost";
+        public const string blackJack = "You got BlackJack, BIG WIN!";
+        public const string dBust = "The dealer has bust, you won!";
+        public const string bust = "Your have bust, you lost";
+        public const string win = "You had more points than the dealer, you won!";
+        public const string lose = "The dealer had more points than you, you lost.";
+        public const string standoff = "You have reached a standoff, the game is undecided";
+    }
+
     public class Position
     {
         private Hand dealerHand;
         private Hand playerHand;
+
         private PositionState state;
 
         public Position()

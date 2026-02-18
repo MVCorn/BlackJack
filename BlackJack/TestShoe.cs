@@ -1,6 +1,6 @@
 ﻿namespace BlackJack
 {
-    public class TestShoe : AbstractShoe
+    public class TestShoe : DealersShoe
     {
         private Stack<Card> cards;
         public TestShoe(Card[] cardArray)
@@ -9,7 +9,7 @@
         }
 
         // Take card from top of stack
-        public override Card TakeCard()
+        public Card TakeCard()
         {
             return cards.Pop();
         }

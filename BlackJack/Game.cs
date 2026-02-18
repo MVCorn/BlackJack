@@ -3,7 +3,7 @@
     public class Game
     {
         private Position position;
-        private AbstractShoe shoe;
+        private DealersShoe shoe;
 
         private int roundNr = 1;
 
@@ -16,7 +16,7 @@
         private string lose = "The dealer had more points than you, you lost.";
         private string win = "You had more points than the dealer, you won!";
 
-        public Game(AbstractShoe shoe)
+        public Game(DealersShoe shoe)
         {
             position = new Position();
             this.shoe = shoe;
@@ -54,7 +54,6 @@
                     Console.WriteLine("That is not a valid inpit, please try again");
                     EndGame();
                     break;
-
             }
         }
 
@@ -84,7 +83,6 @@
                     Console.WriteLine("That is not a valid inpit, please try again");
                     GetMove();
                     break;
-
             }
         }
 
