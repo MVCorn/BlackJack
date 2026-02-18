@@ -10,6 +10,12 @@
             Shuffle();
         }
 
+        // Take card from top of stack
+        public override Card TakeCard()
+        {
+            return cards.Pop();
+        }
+
         // Shuffel cards
         private void Shuffle()
         {

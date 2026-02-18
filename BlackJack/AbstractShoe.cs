@@ -1,19 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlackJack
+﻿namespace BlackJack
 {
     public abstract class AbstractShoe
     {
-        private Stack<Card> cards;
-
-        public AbstractShoe()
-        {
-            cards = new Stack<Card>();
-        }
-
-
         // Create full deck of cards (preshuffled)
         public static Stack<Card> CreateDeck()
         {
@@ -34,12 +22,6 @@ namespace BlackJack
             return cards;
         }
 
-        // Take card from top of stack
-        public Card TakeCard()
-        {
-            return cards.Pop();
-        }
-
-        public Card[] GetCardsArrayForTesting() { return cards.ToArray(); }
+        public abstract Card TakeCard();
     }
 }

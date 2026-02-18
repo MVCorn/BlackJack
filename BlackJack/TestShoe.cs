@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace BlackJack
+﻿namespace BlackJack
 {
     public class TestShoe : AbstractShoe
     {
@@ -11,5 +7,13 @@ namespace BlackJack
         {
             cards = new Stack<Card>(cardArray);
         }
+
+        // Take card from top of stack
+        public override Card TakeCard()
+        {
+            return cards.Pop();
+        }
+
+        public Card[] GetCardsArrayForTesting() { return cards.ToArray(); }
     }
 }

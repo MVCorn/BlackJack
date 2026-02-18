@@ -24,44 +24,23 @@ namespace BlackJack
 
         public void StartGame()
         {
-            string displayString = "You are now playing BlackJack!!!";
+            string displayString = "You are now playing BlackJack!!! \n";
             InitialDeal();
-            displayString = displayString + "Initial Round " + roundNr + "\n \n"
+            displayString = displayString + "Initial Round \n \n"
                             + position.getDisplayString();
             Console.WriteLine(displayString);
-            CheckBlackJack();
             position.showDealerCards();
+            CheckBlackJack("start");
         }
 
         private void EndGame()
         {
             string displayString = "The game has ended, would you like to play again? \n Y/N";
+            Console.WriteLine(displayString);
 
             string input = Console.ReadLine();
         }
 
-        private void CheckBlackJack()
-        {
-            PositionState state = position.getPositionState();
-            switch (state)
-            {
-                case (PositionState.BothBlackJack):
-                    Console.WriteLine(bBlackJack);
-                    EndGame();
-                    break;
-                case (PositionState.DealerBlackJack):
-                    Console.WriteLine(dBlackJack);
-                    EndGame();
-                    break;
-                case (PositionState.BlackJack):
-                    Console.WriteLine(blackJack);
-                    EndGame();
-                    break;
-                default:
-                    CheckBust();
-                    break;
-            }
-        }
 
         private void InitialDeal()
         {
@@ -104,16 +83,40 @@ namespace BlackJack
             Console.WriteLine(displayString);
 
 
-            CheckBlackJack();
+            CheckBlackJack("hit");
         }
 
         private void Stand()
         {
-            CheckStand();
+            CheckBlackJack("stand");
             EndGame();
         }
 
-        private void CheckBust()
+
+        private void CheckBlackJack(string move)
+        {
+            PositionState state = position.getPositionState();
+            switch (state)
+            {
+                case (PositionState.BothBlackJack):
+                    Console.WriteLine(bBlackJack);
+                    EndGame();
+                    break;
+                case (PositionState.DealerBlackJack):
+                    Console.WriteLine(dBlackJack);
+                    EndGame();
+                    break;
+                case (PositionState.BlackJack):
+                    Console.WriteLine(blackJack);
+                    EndGame();
+                    break;
+                default:
+                    CheckBust(move);
+                    break;
+            }
+        }
+
+        private void CheckBust(string move)
         {
             PositionState state = position.getPositionState();
             switch (state)
@@ -127,7 +130,14 @@ namespace BlackJack
                     EndGame();
                     break;
                 default:
-                    GetMove();
+                    if(move == "hit" || move == "start")
+                    {
+                        GetMove();
+                    } else if (move == "stand")
+                    {
+                        CheckStand();
+                    }
+                    ;
                     break;
             }
         }
@@ -137,29 +147,17 @@ namespace BlackJack
             PositionState state = position.getPositionState();
             switch (state)
             {
-                case (PositionState.BothBlackJack):
-                    Console.WriteLine(bBlackJack);
-                    break;
-                case (PositionState.DealerBlackJack):
-                    Console.WriteLine(dBlackJack);
-                    break;
-                case (PositionState.BlackJack):
-                    Console.WriteLine(blackJack);
-                    break;
-                case PositionState.DealerBust:
-                    Console.WriteLine(dBust);
-                    break;
-                case PositionState.Bust:
-                    Console.WriteLine(bust);
-                    break;
                 case PositionState.Win:
                     Console.WriteLine(win);
+                    EndGame();
                     break;
                 case PositionState.Lose:
                     Console.WriteLine(lose);
+                    EndGame();
                     break;
                 case PositionState.Standoff:
                     Console.WriteLine(standoff);
+                    EndGame();
                     break;
                 default:
                     Console.WriteLine("ERROR");
