@@ -54,9 +54,9 @@ namespace BlackJack.nUnitTest
 
             foreach (Card card in _testCards)
             {
-                _testPositionBig.addPlayerCard(card);
+                _testPositionBig.AddPlayerCard(card);
             }
-            _testPositionBig.addDealerCard(_jackOfSpades);
+            _testPositionBig.AddDealerCard(_jackOfSpades);
 
 
         }
@@ -64,54 +64,54 @@ namespace BlackJack.nUnitTest
         [Test]
         public void getPositionState()
         {
-            Assert.That(_testPositionBig.getPositionState() == PositionState.Bust);
+            Assert.That(_testPositionBig.GetPositionState() == PositionState.Bust);
 
             Position pDealerBust = new Position();
-            pDealerBust.addDealerCard(_jackOfSpades);
-            pDealerBust.addDealerCard(_kingOfHearts);
-            pDealerBust.addDealerCard(_queenOfDiamonds);
+            pDealerBust.AddDealerCard(_jackOfSpades);
+            pDealerBust.AddDealerCard(_kingOfHearts);
+            pDealerBust.AddDealerCard(_queenOfDiamonds);
 
-            Assert.That(pDealerBust.getPositionState() == PositionState.DealerBust);
+            Assert.That(pDealerBust.GetPositionState() == PositionState.DealerBust);
 
             Position pLoose = new Position();
-            pLoose.addDealerCard(_aceOfSpades);
-            pLoose.addPlayerCard(_jackOfSpades);
+            pLoose.AddDealerCard(_aceOfSpades);
+            pLoose.AddPlayerCard(_jackOfSpades);
 
-            Assert.That(pLoose.getPositionState() == PositionState.Lose);
+            Assert.That(pLoose.GetPositionState() == PositionState.Lose);
 
             Position pWin = new Position();
 
-            pWin.addPlayerCard(_queenOfDiamonds);
-            pWin.addDealerCard(_twoOfHearts);
+            pWin.AddPlayerCard(_queenOfDiamonds);
+            pWin.AddDealerCard(_twoOfHearts);
 
-            Assert.That(pWin.getPositionState() == PositionState.Win);
+            Assert.That(pWin.GetPositionState() == PositionState.Win);
 
             Position pBlackJack = new Position();
-            pBlackJack.addPlayerCard(_jackOfSpades);
-            pBlackJack.addPlayerCard(_aceOfSpades);
+            pBlackJack.AddPlayerCard(_jackOfSpades);
+            pBlackJack.AddPlayerCard(_aceOfSpades);
 
-            Assert.That(pBlackJack.getPositionState() == PositionState.BlackJack);
+            Assert.That(pBlackJack.GetPositionState() == PositionState.BlackJack);
 
             Position pDealerBlackJack = new Position();
-            pDealerBlackJack.addDealerCard(_queenOfDiamonds);
-            pDealerBlackJack.addDealerCard(_aceOfSpades);
+            pDealerBlackJack.AddDealerCard(_queenOfDiamonds);
+            pDealerBlackJack.AddDealerCard(_aceOfSpades);
 
-            Assert.That(pDealerBlackJack.getPositionState() == PositionState.DealerBlackJack);
+            Assert.That(pDealerBlackJack.GetPositionState() == PositionState.DealerBlackJack);
 
             Position pBothBlackJack = new Position();
-            pBothBlackJack.addPlayerCard(_jackOfSpades);
-            pBothBlackJack.addPlayerCard(_aceOfSpades);
-            pBothBlackJack.addDealerCard(_queenOfDiamonds);
-            pBothBlackJack.addDealerCard(_aceOfSpades);
+            pBothBlackJack.AddPlayerCard(_jackOfSpades);
+            pBothBlackJack.AddPlayerCard(_aceOfSpades);
+            pBothBlackJack.AddDealerCard(_queenOfDiamonds);
+            pBothBlackJack.AddDealerCard(_aceOfSpades);
 
-            Assert.That(pBothBlackJack.getPositionState() == PositionState.BothBlackJack);
+            Assert.That(pBothBlackJack.GetPositionState() == PositionState.BothBlackJack);
 
             Position pDealer21NotBlackJack = new Position();
-            pDealer21NotBlackJack.addDealerCard(_queenOfDiamonds);
-            pDealer21NotBlackJack.addDealerCard(_threeOfClubs);
-            pDealer21NotBlackJack.addDealerCard(_eightOfClubs);
+            pDealer21NotBlackJack.AddDealerCard(_queenOfDiamonds);
+            pDealer21NotBlackJack.AddDealerCard(_threeOfClubs);
+            pDealer21NotBlackJack.AddDealerCard(_eightOfClubs);
 
-            Assert.That(pDealer21NotBlackJack.getPositionState() == PositionState.Lose);
+            Assert.That(pDealer21NotBlackJack.GetPositionState() == PositionState.Lose);
         }
 
         [Test]
@@ -124,7 +124,7 @@ namespace BlackJack.nUnitTest
                                    " Six of Clubs\n Seven of Hearts\n Eight of Clubs\n Nine of Hearts\n Ten of Spades\n" +
                                    " Jack of Spades\n Queen of Diamonds\n King of Hearts\n Ace of Spades\n";
 
-            Assert.That(_testPositionBig.getDisplayString() == correctString);
+            Assert.That(_testPositionBig.GetDisplayString() == correctString);
         }
     }
 }

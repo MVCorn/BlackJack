@@ -24,24 +24,36 @@
             playerHand = new Hand();
         }
 
-        public void addDealerCard(Card card)
+        public void AddDealerCard(Card card)
         {
             dealerHand.AddCard(card);
-            state = comparePoints();
+            state = ComparePoints();
         }
 
-        public void addPlayerCard(Card card)
+        public void AddPlayerCard(Card card)
         {
             playerHand.AddCard(card);
-            state = comparePoints();
+            state = ComparePoints();
         }
 
-        public void showDealerCards()
+        public void ShowDealerCards()
         {
             dealerHand.ShowAllCards();
         }
 
-        private PositionState comparePoints()
+        public bool DealerStillHitting()
+        {
+            int points = dealerHand.GetPoints();
+            if (points > 16)
+            {
+                return false;
+            } else
+            {
+                return true;
+            }
+        }
+
+        private PositionState ComparePoints()
         {
             int dealerPoints = dealerHand.GetPoints();
             int playerPoints = playerHand.GetPoints();
@@ -94,12 +106,12 @@
             }
         }
 
-        public PositionState getPositionState()
+        public PositionState GetPositionState()
         {
             return state;
         }
 
-        public string getDisplayString()
+        public string GetDisplayString()
         {
             string displayString = "Dealer's hand:\n" +
                                    dealerHand.GetDisplayString() +

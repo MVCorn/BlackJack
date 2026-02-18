@@ -24,20 +24,6 @@
             Card[] shuffledArray = cardsArray.OrderBy(x => rnd.Next()).ToArray();
             cards = new Stack<Card>(shuffledArray);
         }
-
-        public override bool Equals(object? obj)
-        {
-            return base.Equals(obj);
-        }
-
-        public override int GetHashCode()
-        {
-            return base.GetHashCode();
-        }
-
-        public override string? ToString()
-        {
-            return base.ToString();
-        }
+        public Card[] GetCardsArrayForTesting() { return cards.ToArray(); }
     }
 }

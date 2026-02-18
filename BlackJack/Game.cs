@@ -1,12 +1,12 @@
-﻿using System.Globalization;
-
-namespace BlackJack
+﻿namespace BlackJack
 {
     public class Game
     {
         private Position position;
         private AbstractShoe shoe;
-        private int roundNr = 0;
+
+        private int roundNr = 1;
+
         private string bust = "Your have bust, you lost";
         private string dBust = "The dealer has bust, you won!";
         private string blackJack = "You got BlackJack, BIG WIN!";
@@ -27,29 +27,45 @@ namespace BlackJack
             string displayString = "You are now playing BlackJack!!! \n";
             InitialDeal();
             displayString = displayString + "Initial Round \n \n"
-                            + position.getDisplayString();
+                            + position.GetDisplayString();
             Console.WriteLine(displayString);
-            position.showDealerCards();
+            position.ShowDealerCards();
             CheckBlackJack("start");
         }
 
         private void EndGame()
         {
-            string displayString = "The game has ended, would you like to play again? \n Y/N";
+            string displayString = "\n The game has ended, would you like to play again? \n Y/N";
             Console.WriteLine(displayString);
 
             string input = Console.ReadLine();
-        }
 
+            switch (input.ToLower())
+            {
+                case "y":
+                    Console.WriteLine("\n");
+                    position = new Position();
+                    shoe = new DealersShoe();
+                    StartGame();
+                    break;
+                case "n":
+                    break;
+                default:
+                    Console.WriteLine("That is not a valid inpit, please try again");
+                    EndGame();
+                    break;
+
+            }
+        }
 
         private void InitialDeal()
         {
-            position.addDealerCard(shoe.TakeCard());
-            position.addPlayerCard(shoe.TakeCard());
+            position.AddDealerCard(shoe.TakeCard());
+            position.AddPlayerCard(shoe.TakeCard());
             Card hiddenCard = shoe.TakeCard();
             hiddenCard.Hide();
-            position.addDealerCard(hiddenCard);
-            position.addPlayerCard(shoe.TakeCard());
+            position.AddDealerCard(hiddenCard);
+            position.AddPlayerCard(shoe.TakeCard());
         }
 
         private void GetMove()
@@ -74,28 +90,30 @@ namespace BlackJack
 
         private void Hit()
         {
-            position.addPlayerCard(shoe.TakeCard());
-            position.addDealerCard(shoe.TakeCard());
+            position.AddPlayerCard(shoe.TakeCard());
+            if (position.DealerStillHitting())
+            {
+                position.AddDealerCard(shoe.TakeCard());
+            }
 
             string displayString = "ROUND " + roundNr + "\n \n"
-                                   + position.getDisplayString();
+                                   + position.GetDisplayString();
 
             Console.WriteLine(displayString);
-
 
             CheckBlackJack("hit");
         }
 
         private void Stand()
         {
+            Console.WriteLine(position.GetDisplayString());
             CheckBlackJack("stand");
-            EndGame();
         }
-
 
         private void CheckBlackJack(string move)
         {
-            PositionState state = position.getPositionState();
+            PositionState state = position.GetPositionState();
+
             switch (state)
             {
                 case (PositionState.BothBlackJack):
@@ -118,7 +136,7 @@ namespace BlackJack
 
         private void CheckBust(string move)
         {
-            PositionState state = position.getPositionState();
+            PositionState state = position.GetPositionState();
             switch (state)
             {
                 case PositionState.DealerBust:
@@ -130,10 +148,11 @@ namespace BlackJack
                     EndGame();
                     break;
                 default:
-                    if(move == "hit" || move == "start")
+                    if (move == "hit" || move == "start")
                     {
                         GetMove();
-                    } else if (move == "stand")
+                    }
+                    else if (move == "stand")
                     {
                         CheckStand();
                     }
@@ -144,7 +163,7 @@ namespace BlackJack
 
         private void CheckStand()
         {
-            PositionState state = position.getPositionState();
+            PositionState state = position.GetPositionState();
             switch (state)
             {
                 case PositionState.Win:
