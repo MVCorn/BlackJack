@@ -4,7 +4,7 @@
     {
         private Position position;
 
-        private int roundNr = 1;
+        private int roundNr = 0;
 
         public Game()
         {
@@ -66,6 +66,7 @@
         {
             if (stateString == StateString.ongoing)
             {
+                roundNr += 1;
                 GetMove();
             }
             else
