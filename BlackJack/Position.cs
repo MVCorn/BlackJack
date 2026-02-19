@@ -11,10 +11,11 @@
         DealerBlackJack,
         BothBlackJack,
         Standoff,
+        Ongoing,
         ERROR
     }
 
-    struct StateString
+    public struct StateString
     {
         public const string bBlackJack = "The dealer got BlackJack... But so did you! BIG WIN!";
         public const string dBlackJack = "Dealer got BlackJack, you lost";
@@ -78,9 +79,9 @@
 
         public string StartSetup()
         {
-            string displayString = "You are now playing BlackJack!!! \n";
+            string displayString = "You are now playing BlackJack!!!\n";
             InitialDeal();
-            displayString = displayString + "Initial Round \n \n"
+            displayString = displayString + "Initial Round\n\n"
                             + GetDisplayString();
             ShowDealerCards();
             return displayString;

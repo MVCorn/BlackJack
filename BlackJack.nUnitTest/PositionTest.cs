@@ -6,117 +6,110 @@ using NUnit.Framework;
 namespace BlackJack.nUnitTest
 {
     public class PositionTests
-    {
-        //Cards
-        private Card _twoOfHearts;
-        private Card _threeOfClubs;
-        private Card _fourOfSpades;
-        private Card _fiveOfDiamonds;
-        private Card _sixOfClubs;
-        private Card _sevenOfHearts;
-        private Card _eightOfClubs;
-        private Card _nineOfHearts;
-        private Card _tenOfSpades;
-
-        private Card _jackOfSpades;
-        private Card _queenOfDiamonds;
-        private Card _kingOfHearts;
-
-        private Card _aceOfSpades;
-
-        //Positions
+    {   //Positions
         private Position _standoffPosition;
+        private Position _winPosition;
+        private Position _losePosition;
+
+        private Position _bBlackJackPosition;
+        private Position _dBlackJackPosition;
+        private Position _blackJackPosition;
+
+        private Position _dBustPosition;
+        private Position _bustPosition;
 
         [SetUp]
         public void Setup()
         {
             //Setup cards:
-            _twoOfHearts = new Card(Rank.Two, Suit.Hearts);
-            _threeOfClubs = new Card(Rank.Three, Suit.Clubs);
-            _fourOfSpades = new Card(Rank.Four, Suit.Spades);
-            _fiveOfDiamonds = new Card(Rank.Five, Suit.Diamonds);
-            _sixOfClubs = new Card(Rank.Six, Suit.Clubs);
-            _sevenOfHearts = new Card(Rank.Seven, Suit.Hearts);
-            _eightOfClubs = new Card(Rank.Eight, Suit.Clubs);
-            _nineOfHearts = new Card(Rank.Nine, Suit.Hearts);
-            _tenOfSpades = new Card(Rank.Ten, Suit.Spades);
+            Card _twoOfHearts = new Card(Rank.Two, Suit.Hearts);
+            Card _threeOfClubs = new Card(Rank.Three, Suit.Clubs);
+            Card _fourOfSpades = new Card(Rank.Four, Suit.Spades);
+            Card _fiveOfDiamonds = new Card(Rank.Five, Suit.Diamonds);
+            Card _sixOfClubs = new Card(Rank.Six, Suit.Clubs);
+            Card _sevenOfHearts = new Card(Rank.Seven, Suit.Hearts);
+            Card _eightOfClubs = new Card(Rank.Eight, Suit.Clubs);
+            Card _nineOfHearts = new Card(Rank.Nine, Suit.Hearts);
+            Card _tenOfSpades = new Card(Rank.Ten, Suit.Spades);
 
-            _jackOfSpades = new Card(Rank.Jack, Suit.Spades);
-            _queenOfDiamonds = new Card(Rank.Queen, Suit.Diamonds);
-            _kingOfHearts = new Card(Rank.King, Suit.Hearts);
+            Card _jackOfSpades = new Card(Rank.Jack, Suit.Spades);
+            Card _queenOfDiamonds = new Card(Rank.Queen, Suit.Diamonds);
+            Card _kingOfHearts = new Card(Rank.King, Suit.Hearts);
 
-            _aceOfSpades = new Card(Rank.Ace, Suit.Spades);
+            Card _aceOfSpades = new Card(Rank.Ace, Suit.Spades);
+            Card _aceOfHearts = new Card(Rank.Ace, Suit.Hearts);
 
             //Setup arrays
+            // Stand states
             Card[] standoffCards = [_sixOfClubs, _fiveOfDiamonds, _fourOfSpades,
-                _threeOfClubs, _queenOfDiamonds, _twoOfHearts, _jackOfSpades];
+                                    _threeOfClubs, _queenOfDiamonds, _twoOfHearts, 
+                                    _jackOfSpades];
+
+            Card[] winCards = [_fourOfSpades, _threeOfClubs, _kingOfHearts, _twoOfHearts];
+
+            Card[] loseCards = [_fourOfSpades, _twoOfHearts, _fiveOfDiamonds, 
+                                _sevenOfHearts, _threeOfClubs, _tenOfSpades];
+
+            // Black jack states
+            Card[] bBlackJackCards = [_aceOfHearts, _aceOfSpades, _tenOfSpades, _kingOfHearts];
+
+            Card[] dBlackJackCards = [_eightOfClubs, _eightOfClubs, _sevenOfHearts, _queenOfDiamonds];
+
+            Card[] blackJackCards = [_jackOfSpades, _fourOfSpades, _aceOfSpades, _sixOfClubs];
+
+            // Bust states
+
+            Card[] dBustCards = [_twoOfHearts, _kingOfHearts, _threeOfClubs, _sixOfClubs, _fourOfSpades, _tenOfSpades];
+
+            Card[] bustCards = [_kingOfHearts, _fiveOfDiamonds, _jackOfSpades, _fourOfSpades, _queenOfDiamonds, _threeOfClubs]; 
 
             //Setup dealersShoes
+            // Stand states
             DealersShoe standoffShoe = new DealersShoe(standoffCards);
+            DealersShoe winShoe = new DealersShoe(winCards);
+            DealersShoe loseShoe = new DealersShoe(loseCards);
+
+            // BlackJack states
+            DealersShoe bBlackJackShoe = new DealersShoe(bBlackJackCards);
+            DealersShoe dBlackJackShoe = new DealersShoe(dBlackJackCards);
+            DealersShoe blackJackShoe = new DealersShoe(blackJackCards);
+
+            // Bust states
+            DealersShoe dBustShoe = new DealersShoe(dBustCards);
+            DealersShoe bustShoe = new DealersShoe(bustCards);
 
             //Setup positions
+            // Stand states
             _standoffPosition = new Position();
             _standoffPosition.setShoe(standoffShoe);
+            _winPosition = new Position();
+            _winPosition.setShoe(winShoe);
+            _losePosition = new Position();
+            _losePosition.setShoe(loseShoe);
+
+            // BlackJack states
+            _bBlackJackPosition = new Position();
+            _bBlackJackPosition.setShoe(bBlackJackShoe);
+            _dBlackJackPosition = new Position();
+            _dBlackJackPosition.setShoe(dBlackJackShoe);
+            _blackJackPosition = new Position();
+            _blackJackPosition.setShoe(blackJackShoe);
+
+            // Bust stats
+            _dBustPosition = new Position();
+            _dBustPosition.setShoe(dBustShoe);
+            _bustPosition = new Position();
+            _bustPosition.setShoe(bustShoe);
         }
 
-        [Test]
-        public void StartSetup()
+        public void TestHelper(string testName, string expected, string actual)
         {
+            Console.WriteLine(testName + ": \n");
+            Console.WriteLine("Expected: \n" + expected + "\n");
+            Console.WriteLine("Actual: \n" + actual + "\n");
 
+            Assert.That(actual == expected);
         }
-
-        /*[Test]
-        public void getPositionState()
-        {
-            Assert.That(_testPositionBig.GetPositionState() == PositionState.Bust);
-
-            Position pDealerBust = new Position();
-            pDealerBust.AddDealerCard(_jackOfSpades);
-            pDealerBust.AddDealerCard(_kingOfHearts);
-            pDealerBust.AddDealerCard(_queenOfDiamonds);
-
-            Assert.That(pDealerBust.GetPositionState() == PositionState.DealerBust);
-
-            Position pLoose = new Position();
-            pLoose.AddDealerCard(_aceOfSpades);
-            pLoose.AddPlayerCard(_jackOfSpades);
-
-            Assert.That(pLoose.GetPositionState() == PositionState.Lose);
-
-            Position pWin = new Position();
-
-            pWin.AddPlayerCard(_queenOfDiamonds);
-            pWin.AddDealerCard(_twoOfHearts);
-
-            Assert.That(pWin.GetPositionState() == PositionState.Win);
-
-            Position pBlackJack = new Position();
-            pBlackJack.AddPlayerCard(_jackOfSpades);
-            pBlackJack.AddPlayerCard(_aceOfSpades);
-
-            Assert.That(pBlackJack.GetPositionState() == PositionState.BlackJack);
-
-            Position pDealerBlackJack = new Position();
-            pDealerBlackJack.AddDealerCard(_queenOfDiamonds);
-            pDealerBlackJack.AddDealerCard(_aceOfSpades);
-
-            Assert.That(pDealerBlackJack.GetPositionState() == PositionState.DealerBlackJack);
-
-            Position pBothBlackJack = new Position();
-            pBothBlackJack.AddPlayerCard(_jackOfSpades);
-            pBothBlackJack.AddPlayerCard(_aceOfSpades);
-            pBothBlackJack.AddDealerCard(_queenOfDiamonds);
-            pBothBlackJack.AddDealerCard(_aceOfSpades);
-
-            Assert.That(pBothBlackJack.GetPositionState() == PositionState.BothBlackJack);
-
-            Position pDealer21NotBlackJack = new Position();
-            pDealer21NotBlackJack.AddDealerCard(_queenOfDiamonds);
-            pDealer21NotBlackJack.AddDealerCard(_threeOfClubs);
-            pDealer21NotBlackJack.AddDealerCard(_eightOfClubs);
-
-            Assert.That(pDealer21NotBlackJack.GetPositionState() == PositionState.Lose);
-        }*/
 
         [Test]
         public void getDisplayStringStandoff()
@@ -127,23 +120,62 @@ namespace BlackJack.nUnitTest
             _standoffPosition.Hit();
             _standoffPosition.Hit();
 
-            string standoffExpected = "Dealer's hand:\n"+
+            string standoffExpected = "Dealer's hand:\n" +
                                    " Jack of Spades\n Queen of Diamonds\n" +
                                    "Your hand:\n" +
                                    " Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds\n" +
                                    " Six of Clubs\n";
-            string standoffActual = _standoffPosition.GetDisplayString(); 
+            string standoffActual = _standoffPosition.GetDisplayString();
 
             TestHelper("Standoff display test", standoffExpected, standoffActual);
         }
 
-        public void TestHelper(string testName, string expected,  string actual)
+        [Test]
+        public void StartSetup()
         {
-            Console.WriteLine(testName + ": \n");
-            Console.WriteLine("Expected: \n" + expected);
-            Console.WriteLine("Actual: \n" + actual + "\n");
+            string expectedSetupDisplay = "You are now playing BlackJack!!!\n" +
+                                          "Initial Round\n\n" +
+                                          "Dealer's hand:\n Ten of Spades\n Hidden card\n" +
+                                          "Your hand:\n Three of Clubs\n Five of Diamonds\n";
+            string actialSetupDisplay = _losePosition.StartSetup();
 
-            Assert.That(actual == expected);
+            TestHelper("Setup Test", expectedSetupDisplay, actialSetupDisplay);
         }
+
+        [Test]
+        public void StartGameOngoing()
+        {
+            _losePosition.StartSetup();
+            string actualStartGameOngoing = _losePosition.StartGame();
+            TestHelper("Ongoing StartGame Test", StateString.ongoing, actualStartGameOngoing);
+        }
+
+        [Test]
+        public void StartGameBlackJack()
+        {
+            _blackJackPosition.StartSetup();
+            string actualSGBlackJack = _blackJackPosition.StartGame();
+            TestHelper("BlackJack StartGame Test", StateString.blackJack, actualSGBlackJack);
+        }
+
+        [Test]
+        public void StandWinTest()
+        {
+            _winPosition.StartSetup();
+            string ongoing = _winPosition.StartGame();
+            string stand = _winPosition.Stand();
+
+            TestHelper("Win Stand Test", StateString.ongoing + "\n" + StateString.win, ongoing + "\n" + stand);
+        }
+
+        [Test]
+        public void HitBustTest()
+        {
+            _bustPosition.StartSetup();
+            string hit = _bustPosition.Hit();
+
+            TestHelper("Bust Hit Test", StateString.bust, hit);
+        }
+
     }
 }
