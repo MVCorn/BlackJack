@@ -1,6 +1,6 @@
 ﻿namespace BlackJack.nUnitTest
 {
-    public class GameTests
+    public class PlayerTests
     {
         private Card _twoOfHearts;
         private Card _threeOfClubs;
@@ -44,17 +44,6 @@
                                      _jackOfSpades, _queenOfDiamonds, _kingOfHearts, _aceOfSpades};
 
 
-        }
-
-        [Test]
-        public void dealerBlackJack()
-        {
-            Card[] cards = { _kingOfHearts,_twoOfHearts, _aceOfSpades, _sevenOfHearts };
-            TestShoe testShoe = new TestShoe(cards);
-            Game game = new Game(testShoe);
-
-            
-            
         }
     }
 }

@@ -7,6 +7,7 @@ namespace BlackJack.nUnitTest
 {
     public class HandTests
     {
+        //Cards
         private Card _twoOfHearts;
         private Card _threeOfClubs;
         private Card _fourOfSpades;
@@ -23,11 +24,13 @@ namespace BlackJack.nUnitTest
 
         private Card _aceOfSpades;
 
+        //Card array
         private Card[] _testCards;
 
         [SetUp]
         public void Setup()
         {
+            //Setup cards
             _twoOfHearts = new Card(Rank.Two, Suit.Hearts);
             _threeOfClubs = new Card(Rank.Three, Suit.Clubs);
             _fourOfSpades = new Card(Rank.Four, Suit.Spades);
@@ -44,6 +47,7 @@ namespace BlackJack.nUnitTest
 
             _aceOfSpades = new Card(Rank.Ace, Suit.Spades);
 
+            //Setup card array
             _testCards = new Card[] {_twoOfHearts, _threeOfClubs, _fourOfSpades, _fiveOfDiamonds,
                                      _sixOfClubs, _sevenOfHearts, _eightOfClubs, _nineOfHearts, _tenOfSpades,
                                      _jackOfSpades, _queenOfDiamonds, _kingOfHearts, _aceOfSpades};
@@ -97,7 +101,7 @@ namespace BlackJack.nUnitTest
             string correctString = " Two of Hearts\n Three of Clubs\n Four of Spades\n Five of Diamonds" +
                                    "\n Six of Clubs\n Seven of Hearts\n Eight of Clubs\n Nine of Hearts\n Ten of Spades" +
                                    "\n Jack of Spades\n Queen of Diamonds\n King of Hearts\n Ace of Spades\n";
-
+            Console.WriteLine(hand.GetDisplayString());
             Assert.That(hand.GetDisplayString().Equals(correctString));
         }
 

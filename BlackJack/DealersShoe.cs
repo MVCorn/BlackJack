@@ -10,6 +10,11 @@
             Shuffle();
         }
 
+        public DealersShoe(Card[] cardArray)
+        {
+            cards = new Stack<Card>(cardArray);
+        }
+
         // Create full deck of cards (preshuffled)
         public static Stack<Card> CreateDeck()
         {
@@ -31,7 +36,7 @@
         }
 
         // Take card from top of stack
-        public Card TakeCard()
+        public virtual Card TakeCard()
         {
             return cards.Pop();
         }

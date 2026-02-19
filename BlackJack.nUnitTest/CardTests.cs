@@ -3,6 +3,7 @@ namespace BlackJack.nUnitTest
 {
     public class CardTests
     {
+        //Cards
         private Card _twoOfHearts;
         private Card _threeOfClubs;
         private Card _fourOfSpades;
@@ -22,6 +23,7 @@ namespace BlackJack.nUnitTest
         [SetUp]
         public void Setup()
         {
+            //Setup cards
             _twoOfHearts = new Card(Rank.Two, Suit.Hearts);
             _threeOfClubs = new Card(Rank.Three, Suit.Clubs);
             _fourOfSpades = new Card(Rank.Four, Suit.Spades);
