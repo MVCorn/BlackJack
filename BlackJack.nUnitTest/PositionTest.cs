@@ -155,7 +155,7 @@ namespace BlackJack.nUnitTest
         {
             _blackJackPosition.StartSetup();
             string actualSGBlackJack = _blackJackPosition.StartGame();
-            TestHelper("BlackJack StartGame Test", StateString.blackJack, actualSGBlackJack);
+            TestHelper("BlackJack StartGame Test", _blackJackPosition.GetDisplayString() + "\n" + StateString.blackJack, actualSGBlackJack);
         }
 
         [Test]

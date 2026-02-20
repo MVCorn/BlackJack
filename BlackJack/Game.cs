@@ -78,21 +78,21 @@
 
         private void Hit()
         {
+            string stateString = position.Hit();
+
             string displayString = "ROUND " + roundNr + "\n \n"
                                    + position.GetDisplayString();
 
             Console.WriteLine(displayString);
 
-            string stateString = position.Hit();
-            
             CheckOngoing(stateString);
         }
 
         private void Stand()
         {
-            Console.WriteLine(position.GetDisplayString());
-
             string stateString = position.Stand();
+
+            Console.WriteLine(position.GetDisplayString());
 
             Console.WriteLine(stateString);
             EndGame();

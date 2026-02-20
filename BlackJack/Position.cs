@@ -118,13 +118,13 @@
                 AddDealerCard(shoe.TakeCard());
             }
             State state = ComparePoints(playerHand);
-            return CheckBlackJack("hit", state);
+            return CheckBust("hit", state);
         }
 
         public string Stand()
         {
             State state = ComparePoints(playerHand);
-            return CheckBlackJack("stand", state);
+            return CheckBust("stand", state);
         }
 
         private string CheckBlackJack(string move, State state)
@@ -133,11 +133,11 @@
             switch (state)
             {
                 case (State.BothBlackJack):
-                    return StateString.bBlackJack;
+                    return GetDisplayString() + "\n" + StateString.bBlackJack;
                 case (State.DealerBlackJack):
-                    return StateString.dBlackJack;
+                    return GetDisplayString() + "\n" + StateString.dBlackJack;
                 case (State.BlackJack):
-                    return StateString.blackJack;
+                    return GetDisplayString() + "\n" + StateString.blackJack;
                 default:
                     return CheckBust(move, state);
             }
