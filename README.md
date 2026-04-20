@@ -18,6 +18,105 @@ The dealer hits on 16 or less and stands on 17 or more. The game detects all sta
 
 ## Project Structure
 
+```mermaid
+
+classDiagram
+	direction LR
+	class Rank {
+	<<enumeration>>
+	Two
+	Three
+	Four
+	Five
+	Six
+	Seven
+	Eight
+	Nine
+	Ten
+	Jack
+	Queen
+	King
+	Ace
+	}
+	
+	class Suit {
+	<<enumeration>>
+	Clubs
+	Diamonds
+	Hearts
+	Spades
+	}
+	
+	class Card {
+	Rank rank
+	Suit suit
+	bool visible
+	int points
+	getPoints()
+	getDisplayString
+	hide()
+	show()
+	}
+	
+	class DealersShoe {
+	Stack~Card~ cards
+	-shuffel()
+	takeCard()
+	getCardArrayForTesting()
+	}
+	
+	class Hand {
+	List~Card~ cards
+	int nrAces
+	int totalPoint
+	addCard(Card)
+	-calculatePoints()
+	getPoints()
+	getNrCards()
+	getDisplayString()
+	getCardsForTesting()
+	}
+	
+	class PositionState {
+	<<enumeration>>
+	Win
+	Lose
+	Bust
+	DealerBust
+	BlackJack
+	DealerBlackJack
+	BothBlackJack
+	Standoff
+	ERROR
+	}
+	
+	class Position {
+	Hand dealerHand
+	Hand playerHand
+	positionSate state
+	addDealerCard(Card)
+	addPlayerCard(Card)
+	-comparePositions()
+	getPositionState()
+	getDisplayString()
+	}
+	
+	class Game {
+	Position position
+	DealersShoe shoe
+	startGame()
+	}
+	
+	Card ..> Rank
+	Card ..> Suit
+	DealersShoe o-- Card
+	Hand o-- Card
+	Position ..> PositionState
+	Position *-- Hand
+	Game *-- Position
+	Game *-- DealersShoe
+```
+
 ```
 BlackJack/
 ├── Card.cs           # Card model (rank, suit, point value, visibility)
@@ -25,7 +124,7 @@ BlackJack/
 ├── DealersShoe.cs    # Shuffled deck (52 cards)
 ├── Position.cs       # Game engine and state machine
 ├── Game.cs           # UI loop and user input handling
-├── Player.cs         # Player model (funds, hands)
+├── Player.cs         # Player model (funds, hands) (For future expansion)
 └── Program.cs        # Entry point
 
 BlackJack.nUnitTest/
